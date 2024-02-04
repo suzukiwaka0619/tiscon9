@@ -11,8 +11,13 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.text.ParseException;
 
 /**
  * 引越し見積もり機能において業務処理を担当するクラス。
@@ -91,8 +96,22 @@ public class EstimateService {
         if (dto.getWashingMachineInstallation()) {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
+        LocalDate date;
+        date = LocalDate.parse(dto.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        int month = date.getMonth().getValue();
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        double n;
+        if(month == 3 || month == 4) {
+            n=1.5;
+        }else if (month == 9) {
+            n=1.2;
+        }else {
+            n=1.0;
+        }
+
+        double price = (priceForDistance + pricePerTruck)*n + priceForOptionalService;
+        
+        return (int)price;
     }
 
     /**

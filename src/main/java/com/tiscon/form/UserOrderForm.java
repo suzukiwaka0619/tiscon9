@@ -2,6 +2,8 @@ package com.tiscon.form;
 
 import com.tiscon.validator.Numeric;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -54,6 +56,9 @@ public class UserOrderForm {
 
     @NotNull
     private boolean washingMachineInstallation;
+
+    @NotBlank
+    private String date;
 
     public String getCustomerName() {
         return customerName;
@@ -109,6 +114,14 @@ public class UserOrderForm {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getBox() {
