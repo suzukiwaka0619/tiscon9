@@ -74,7 +74,7 @@ public class EstimateService {
      * @param dto 見積もり依頼情報
      * @return 概算見積もり結果の料金
      */
-    public Integer getPrice(UserOrderDto dto) {
+    public List<Integer> getPrice(UserOrderDto dto) {
         double distance = estimateDAO.getDistance(dto.getOldPrefectureId(), dto.getNewPrefectureId());
         // 小数点以下を切り捨てる
         int distanceInt = (int) Math.floor(distance);
@@ -108,10 +108,13 @@ public class EstimateService {
         }else {
             n=1.0;
         }
-
+        List<Integer> priceList = new ArrayList<Integer>();
         double price = (priceForDistance + pricePerTruck)*n + priceForOptionalService;
-        
-        return (int)price;
+        priceList.add((int)price);
+        priceList.add(priceForDistance);
+        priceList.add(pricePerTruck);
+        priceList.add(priceForOptionalService);
+        return priceList;
     }
 
     /**

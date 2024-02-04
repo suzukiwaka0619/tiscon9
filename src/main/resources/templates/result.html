@@ -21,6 +21,10 @@
     <div class="col-sm-12">
       <div class="text-center">
         <div class="primary-text"><span th:text="${price}"></span>円</div>
+        <div class="page-title">距離変動額&nbsp;<span th:text="${priceForDistance}"></span>円</div>
+        <div class="page-title">トラック輸送費&nbsp;<span th:text="${pricePerTruck}"></span>円</div>
+        <div class="page-title">オプション代金&nbsp;<span th:text="${priceForOptionalService}"></span>円</div>
+        <div>季節によって価格が変動します（3月、4月が1.5倍　9月が1.2倍）</div>
         <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼へ</button>
       </div>
       <div class="sub-title">お客様情報</div>
