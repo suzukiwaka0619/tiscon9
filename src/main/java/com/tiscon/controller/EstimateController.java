@@ -144,13 +144,16 @@ public class EstimateController {
         priceList = estimateService.getPrice(dto);
 
         int price=priceList.get(0);
-        int priceForDistance=priceList.get(1);
-        int pricePerTruck=priceList.get(2);
-        int priceForOptionalService=priceList.get(3);
+        int price2=priceList.get(1);
+        int priceForDistance=priceList.get(2);
+        int pricePerTruck=priceList.get(3);
+        int priceForOptionalService=priceList.get(4);
+        
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
         model.addAttribute("price", price);
+        model.addAttribute("price2", price2);
         model.addAttribute("priceForDistance", priceForDistance);
         model.addAttribute("pricePerTruck", pricePerTruck);
         model.addAttribute("priceForOptionalService", priceForOptionalService);

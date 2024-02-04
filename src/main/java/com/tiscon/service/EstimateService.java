@@ -110,7 +110,9 @@ public class EstimateService {
         }
         List<Integer> priceList = new ArrayList<Integer>();
         double price = (priceForDistance + pricePerTruck)*n + priceForOptionalService;
+        int price2 = priceForDistance + pricePerTruck + priceForOptionalService;
         priceList.add((int)price);
+        priceList.add(price2);
         priceList.add(priceForDistance);
         priceList.add(pricePerTruck);
         priceList.add(priceForOptionalService);

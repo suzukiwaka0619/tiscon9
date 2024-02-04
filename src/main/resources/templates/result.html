@@ -24,7 +24,8 @@
         <div class="page-title">距離変動額&nbsp;<span th:text="${priceForDistance}"></span>円</div>
         <div class="page-title">トラック輸送費&nbsp;<span th:text="${pricePerTruck}"></span>円</div>
         <div class="page-title">オプション代金&nbsp;<span th:text="${priceForOptionalService}"></span>円</div>
-        <div>季節によって価格が変動します（3月、4月が1.5倍　9月が1.2倍）</div>
+        <div>※季節によって価格が変動します（3月、4月が1.5倍 9月が1.2倍）</div>
+        <div>3月、4月、9月を選択のお客様は、他の月を選択すると、<span th:text="${price2}"></span>円になります。</div>
         <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼へ</button>
       </div>
       <div class="sub-title">お客様情報</div>
@@ -138,5 +139,4 @@
 <script src="../js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
 <script src="../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 </body>
-
 </html>
